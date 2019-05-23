@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://fhagno:manana11@devconnector-esbhe.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "secrettoken"
+}
