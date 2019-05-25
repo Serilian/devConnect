@@ -4,7 +4,6 @@
     <list default="true" id="d9f8a2e7-72e9-4d62-abb5-0926d53aad80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/db.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,8 +46,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="137" column="78" selection-start-line="137" selection-start-column="78" selection-end-line="137" selection-end-column="78" />
+            <state relative-caret-position="405">
+              <caret line="204" column="29" selection-start-line="204" selection-start-column="29" selection-end-line="204" selection-end-column="29" />
+              <folding>
+                <element signature="e#406#765#0" />
+                <element signature="e#884#1009#0" />
+                <element signature="e#1032#2650#0" />
+                <element signature="e#1101#1167#0" />
+                <element signature="e#2129#2521#0" />
+                <element signature="e#2226#2401#0" />
+                <element signature="e#2768#2783#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,6 +174,11 @@
             <path>
               <item name="devConnect" type="b2602c69:ProjectViewProjectNode" />
               <item name="devConnect" type="462c0819:PsiDirectoryNode" />
+              <item name="middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="devConnect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="devConnect" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -220,7 +233,7 @@
       <workItem from="1558431529481" duration="9605000" />
       <workItem from="1558588005624" duration="13451000" />
       <workItem from="1558702796555" duration="1249000" />
-      <workItem from="1558790406200" duration="2063000" />
+      <workItem from="1558790406200" duration="4370000" />
     </task>
     <task id="LOCAL-00001" summary="Working on APIs and protected routes">
       <created>1558621255141</created>
@@ -229,17 +242,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558621255142</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Working on APIs">
+      <created>1558793134255</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1558793134255</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29899000" />
+    <option name="totallyTimeSpent" value="32206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="865" y="0" width="1062" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13867188" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20507812" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -267,7 +287,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working on APIs and protected routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on APIs and protected routes" />
+    <MESSAGE value="Working on APIs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on APIs" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/express/index.js">
@@ -333,13 +354,6 @@
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="LogFileEditorProvider" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/middleware/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/default.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -389,10 +403,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/middleware/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="137" column="78" selection-start-line="137" selection-start-column="78" selection-end-line="137" selection-end-column="78" />
+        <state relative-caret-position="405">
+          <caret line="204" column="29" selection-start-line="204" selection-start-column="29" selection-end-line="204" selection-end-column="29" />
+          <folding>
+            <element signature="e#406#765#0" />
+            <element signature="e#884#1009#0" />
+            <element signature="e#1032#2650#0" />
+            <element signature="e#1101#1167#0" />
+            <element signature="e#2129#2521#0" />
+            <element signature="e#2226#2401#0" />
+            <element signature="e#2768#2783#0" />
+          </folding>
         </state>
       </provider>
     </entry>

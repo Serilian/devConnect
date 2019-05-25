@@ -126,7 +126,7 @@ router.get("/user/:user_id", async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.params.user_id }).populate("user", ["name", "avatar"]);
     if (!profile) {
-      return res.status(400).json({msg: "Profile not found"});
+      return res.status(400).json({ msg: "Profile not found" });
     }
 
     return res.json(profile);
@@ -134,12 +134,91 @@ router.get("/user/:user_id", async (req, res) => {
   } catch (err) {
     console.error(err.message);
 
-    if(err.kind === "ObjectId") {
-      return res.status(400).json({msg: "Profile not found"});
+    if (err.kind === "ObjectId") {
+      return res.status(400).json({ msg: "Profile not found" });
     }
     return res.status(500).json("Server error");
   }
 
 });
+
+
+// @routes  DELETE api/profile/
+// @desc    Get profile, user, post
+// @access  Private
+router.delete("/", auth, async (req, res) => {
+
+  try {
+
+    await Profile.findOneAndRemove({ user: req.user.id });
+    await User.findOneAndRemove({ _id: req.user.id });
+
+    return res.json({ msg: "User deleted" });
+
+  } catch (err) {
+    console.error(err.message);
+
+    if (err.kind === "ObjectId") {
+      return res.status(400).json({ msg: "Profile not found" });
+    }
+    return res.status(500).json("Server error");
+  }
+});
+
+// @routes  PUT api/profile/experience
+// @desc    Add profile experience
+// @access  Private
+router.put("/experience",
+  [
+    auth,
+    check("title", "title is required").not().isEmpty(),
+    check("company", "Company is required").not().isEmpty()
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const {
+      title,
+      company,
+      location,
+      from,
+      to,
+      current,
+      description
+    } = req.body;
+
+    const newExperience = {
+      title,
+      company,
+      location,
+      from,
+      to,
+      current,
+      description
+    };
+
+    try {
+      const profile = await Profile.findOne({user: req.user.id});
+
+      if(!profile.experience) profile.experience = [];
+
+      profile.experience.unshift(newExperience);
+
+      await profile.save();
+
+      return res.json(profile);
+
+    } catch(err) {
+      console.log(err.message);
+      return res.status(500).json({ msg: "Server error" });
+    }
+
+
+
+
+
+  });
 
 module.exports = router;
