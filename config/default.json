@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://fhagno:manana11@devconnector-esbhe.mongodb.net/test?retryWrites=true",
-  "jwtSecret": "secrettoken"
+  "jwtSecret": "secrettoken",
+  "githubClientId": "5cc8a7b9bb793ebab423",
+  "githubSecret": "fdda3f8a5961f6c2f8a525a9a1d8dc77db0c1617"
 }
