@@ -20,7 +20,7 @@ app.use(morgan("combined"));
 app.use(morgan('combined', {stream: fs.createWriteStream('./access.log', {flags: 'a'})}));
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 
 app.get("/", (req, resp) => {
