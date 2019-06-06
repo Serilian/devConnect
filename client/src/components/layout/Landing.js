@@ -1,7 +1,10 @@
-import React from "react";
+import React  from "react";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
+
+
+
   return (
     <div>
       <section className="landing">
@@ -13,7 +16,7 @@ const Landing = () => {
               other developers
             </p>
             <div className="buttons">
-              <Link to={'/register'} className="btn btn-primary">Sign Up</Link>
+              <Link to={'/register'} className="btn btn-primary">Register</Link>
               <Link to={"/login"} className="btn btn-light">Login</Link>
             </div>
           </div>
