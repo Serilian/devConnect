@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react";
-import PropTypes from "prop-types";
+import React, {useState} from "react";
 import { connect } from "react-redux";
 import { addEducation } from "../../actions/profile";
 import { withRouter, Link } from "react-router-dom";
@@ -113,7 +112,5 @@ const AddEducation = ({addEducation, history}) => {
     </>
   );
 };
-
-AddEducation.propTypes = {};
 
 export default connect(null, {addEducation})(withRouter(AddEducation));
