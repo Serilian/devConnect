@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require("../middleware/auth");
 const Profile = require("../models/Profile");
 const User = require("../models/User");
+const Post = require('../models/Post');
 const { check, validationResult } = require("express-validator/check");
 const request = require("request");
 const config = require("config");
@@ -151,6 +152,7 @@ router.delete("/", auth, async (req, res) => {
 
   try {
 
+    await Post.deleteMany({user: req.user.id});
     await Profile.findOneAndRemove({ user: req.user.id });
     await User.findOneAndRemove({ _id: req.user.id });
 
@@ -216,7 +218,7 @@ router.put("/experience",
     }
   });
 
-// @routes  DELETE api/profile/experience/:exp_id
+// @routes  DELETE api/profiles/experience/:exp_id
 // @desc    Delete experience from profile
 // @access  Private
 router.delete("/experience/:exp_id", auth, async (req, res) => {
@@ -241,7 +243,7 @@ router.delete("/experience/:exp_id", auth, async (req, res) => {
   }
 });
 
-// @routes  PUT api/profile/education
+// @routes  PUT api/profiles/education
 // @desc    Add profile education
 // @access  Private
 router.put("/education",
@@ -249,8 +251,7 @@ router.put("/education",
     auth,
     check("school", "school is required").not().isEmpty(),
     check("degree", "degree is required").not().isEmpty(),
-    check("fieldofstudy", "Field of study is required").not().isEmpty(),
-    check("from", "From date is required").not().isEmpty()
+    check("fieldofstudy", "Field of study is required").not().isEmpty()
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -291,7 +292,7 @@ router.put("/education",
     }
   });
 
-// @routes  DELETE api/profile/education/:edu_id
+// @routes  DELETE api/profiles/education/:edu_id
 // @desc    Delete education from profile
 // @access  Private
 router.delete("/education/:edu_id", auth, async (req, res) => {
@@ -317,7 +318,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
 });
 
 
-// @routes  GET api/profile/github/:username
+// @routes  GET api/profiles/github/:username
 // @desc    Get user repos from github
 // @access  Public
 router.get("/github/:username", async (req, res) => {

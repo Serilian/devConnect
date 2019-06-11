@@ -11,9 +11,9 @@ const EditProfile = ({
   history
 }) => {
   const [formData, setFormData] = useState({
-    company: '',
+    degree: '',
     website: '',
-    location: '',
+    fieldofstudy: '',
     status: '',
     skills: '',
     githubusername: '',
@@ -30,9 +30,9 @@ const EditProfile = ({
   useEffect(()=> {
     getCurrentProfile();
     setFormData({
-      company: loading || !profile.company ? '' : profile.company,
+      degree: loading || !profile.degree ? '' : profile.degree,
       website: loading || !profile.website ? '' : profile.website,
-      location: loading || !profile.location ? '' : profile.location,
+      fieldofstudy: loading || !profile.fieldofstudy ? '' : profile.fieldofstudy,
       status: loading || !profile.status ? '' : profile.status,
       skills: loading || !profile.skills ? '' : profile.skills.join(','),
       githubusername: loading || !profile.githubusername ? '' : profile.githubusername,

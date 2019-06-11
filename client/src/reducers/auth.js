@@ -5,12 +5,13 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  DELETE_ACCOUNT
 } from "../actions/actionTypes";
 
 const initialState = {
   token: localStorage.getItem("token"),
-  isAuthenticated: null,
+  isAuthenticated: false,
   loading: true,
   user: null
 };
@@ -47,6 +48,7 @@ const reducer = (state = initialState, action) => {
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGOUT:
+    case DELETE_ACCOUNT:
       localStorage.removeItem("token");
 
       return {
