@@ -116,7 +116,7 @@ router.put("/like/:id", auth, async (req, res) => {
     if (post.likes.filter(like => {
       return like.user.toString() === req.user.id;
     }).length > 0) {
-      return res.json(400).json({ msg: "Post already liked" });
+      return res.status(400).json({ msg: "Post already liked" });
     }
 
     post.likes.unshift({ user: req.user.id });
@@ -140,7 +140,7 @@ router.put("/unlike/:id", auth, async (req, res) => {
 
     if (post.likes.filter(like => like.user.toString() === req.user.id)
       .length === 0) {
-      return res.json(400).json({ msg: "Post not liked yet" });
+      return res.status(400).json({ msg: "Post not liked yet" });
     }
 
     const removeIndex = post.likes.map(like =>
