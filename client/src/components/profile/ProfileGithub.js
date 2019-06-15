@@ -19,7 +19,7 @@ const ProfileGithub = ({ username, getGithubRepos, profile: { repos, loading } }
         <h2 className="text-primary my-1">
           <i className="fab fa-github"></i> Github Repos
         </h2>
-        {loading && repos === null ? <Spinner/> : repos.map(repo =>
+        {loading || repos === null ? <Spinner/> : repos.map(repo =>
           (<div className="repo bg-white p-1 my-1" key={repo.id}>
             <div>
               <h4><a href={repo.html_url} target="_blank"
